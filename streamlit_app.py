@@ -4,7 +4,7 @@ import tensorflow_hub as hub
 import pandas as pd
 
 # Initialize the model
-@st.experimental_singleton
+@st.cache(allow_output_mutation=True)
 def load_model():
     module_url = "https://tfhub.dev/google/universal-sentence-encoder/4"
     model = hub.load(module_url)
