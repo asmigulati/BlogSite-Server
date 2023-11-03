@@ -59,7 +59,7 @@ if st.button('Query'):
 
         # Display the most similar entries
         results = df.nlargest(num_results, 'Similarity')
-        st.write(results[['Time', 'String']])
+        st.write(results[['Timestamp', 'Activity']])
     else:
         st.write('Please enter a sentence to query.')
 
