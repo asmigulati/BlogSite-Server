@@ -4,7 +4,7 @@ import tensorflow_hub as hub
 import pandas as pd
 
 # Initialize the model
-@st.cache(allow_output_mutation=True)
+@st.experimental_singleton
 def load_model():
     module_url = "https://tfhub.dev/google/universal-sentence-encoder/4"
     model = hub.load(module_url)
@@ -39,7 +39,7 @@ data = {
 }
 
 df = pd.DataFrame(data)
-df['Embed'] = df['Activity'].apply(lambda x: embed([x]))
+df['Embed'] = df['Activity'].apply(lambda x: embed(x))
 
 # Streamlit interface
 st.title('Vector Database Query')
