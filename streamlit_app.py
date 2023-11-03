@@ -38,7 +38,7 @@ st.title('Vector Database Query')
 user_input = st.text_input('Enter a sentence to find similar sentences in the database:')
 
 # Number of results to return
-num_results = st.number_input('Number of results to show:', min_value=1, max_value=len(df), value=5, step=1)
+num_results = st.number_input('Number of results to show:', min_value=1, max_value=len(df), value=min(5, len(df)), step=1)
 
 # Button to perform query
 if st.button('Query'):
