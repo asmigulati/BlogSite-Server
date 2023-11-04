@@ -23,20 +23,26 @@ def cosine_similarity(vec_a, vec_b):
     norm_a = np.linalg.norm(vec_a)
     norm_b = np.linalg.norm(vec_b)
     return dot_product / (norm_a * norm_b)
-data = {
-    'Timestamp': ['2023-02-13 22:48:20', '2023-02-13 22:48:20', '2023-02-13 22:48:10', '2023-02-13 22:48:10', 
-                  '2023-02-13 22:48:10', '2023-02-13 22:33:30', '2023-02-13 22:33:10', '2023-02-13 22:18:10', 
-                  '2023-02-13 22:49:00', '2023-02-13 21:48:50', '2023-02-13 21:48:50', '2023-02-13 21:48:50', 
-                  '2023-02-13 21:48:10', '2023-02-13 21:48:10', '2023-02-13 21:19:10', '2023-02-13 21:18:10', 
-                  '2023-02-13 21:18:10', '2023-02-13 21:03:40', '2023-02-13 21:03:30', '2023-02-13 21:03:30'],
-    'Activity': ['desk is idle', 'bed is idle', 'closet is idle', 'refrigerator is idle', 
-                 'Isabella Rodriguez is stretching', 'shelf is idle', 'desk is neat and organized', 
-                 'Isabella Rodriguez is writing in her journal', 'desk is idle', 
-                 'Isabella Rodriguez is taking a break', 'bed is idle', 
-                 'Isabella Rodriguez is cleaning up the kitchen', 'refrigerator is idle', 'bed is being used', 
-                 'shelf is idle', 'Isabella Rodriguez is watching a movie', 'shelf is organized and tidy', 
-                 'desk is idle', 'Isabella Rodriguez is reading a book', 'bed is idle']
-}
+data = { 
+    'Timestamp': [ 
+        '2023-03-13 08:00:00', '2023-03-13 08:30:00', '2023-03-13 09:00:00', 
+        '2023-03-13 09:30:00', '2023-03-13 10:00:00', '2023-03-13 10:30:00', 
+        '2023-03-13 11:00:00', '2023-03-13 11:30:00', '2023-03-13 12:00:00', 
+        '2023-03-13 12:30:00', '2023-03-13 13:00:00', '2023-03-13 13:30:00', 
+        '2023-03-13 14:00:00', '2023-03-13 14:30:00', '2023-03-13 15:00:00', 
+        '2023-03-13 15:30:00', '2023-03-13 16:00:00', '2023-03-13 16:30:00', 
+        '2023-03-13 17:00:00', '2023-03-13 17:30:00' 
+    ], 
+    'Activity': [ 
+        'Alex wakes up and stretches', 'Alex enjoys a hearty breakfast', 'Alex starts working on the computer', 
+        'Alex takes a short coffee break', 'Alex attends a team meeting', 'Alex reads industry news', 
+        'Alex prepares a light lunch', 'Alex reviews project timelines', 'Alex joins a client call', 
+        'Alex responds to emails', 'Alex goes for a quick walk', 'Alex brainstorms with colleagues', 
+        'Alex works on a presentation', 'Alex has a snack', 'Alex wraps up work', 
+        'Alex heads out for an evening jog', 'Alex cooks dinner', 'Alex relaxes with a book', 
+        'Alex plans the next day', 'Alex goes to sleep' 
+    ] 
+} 
 
 df = pd.DataFrame(data)
 df['Embed'] = df['Activity'].apply(lambda x: embed(x))
