@@ -1,5 +1,6 @@
 streamlit
-pandas
-numpy
-tensorflow
-tensorflow-hub
+openai
+google-api-python-client
+requests
+beautifulsoup4
+pyautogen
